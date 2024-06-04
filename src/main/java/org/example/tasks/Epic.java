@@ -10,19 +10,21 @@ public class Epic extends Task {
     private String name;
     private String description;
     private String status;
-    public String[] statuses = {"NEW", "IN_PROGRESS", "DONE"};
     private ArrayList<Subtask> subtasks = new ArrayList<Subtask>();
 
 
     public Epic(){}
 
-    public Epic(int id, String name, String description){
-        super(id, name, description);
+    public Epic(int id, String name, String description, String status){
+        super(id, name, description, status);
     }
 
 
-    public boolean checkIfEnd(){
-        for(Subtask i : subtasks){
+
+
+
+    public boolean checkIfNoActiveTasks() {
+        for(Subtask i : subtasks) {
             if(i.getStatus().equals("DONE")){
                 ifCheck = true;
             } else {
