@@ -1,7 +1,5 @@
 package org.example.tasks;
 
-import java.util.HashMap;
-
 public class Task {
     protected int id;
     protected String name;
@@ -50,7 +48,7 @@ public class Task {
     }
     @Override
     public String toString(){
-        return "name: " + this.name + "\ndescription:" + this.description + "\nstatus:" + this.status;
+        return "\nname: " + this.name + "\ndescription: " + this.description + "\nstatus: " + this.status;
     }
 }
 

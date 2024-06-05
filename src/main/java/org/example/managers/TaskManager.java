@@ -5,7 +5,7 @@ import org.example.tasks.Subtask;
 import org.example.tasks.Task;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Objects;
 
 public class TaskManager implements Manager {
     int doneSt = 0;
@@ -40,17 +40,17 @@ public class TaskManager implements Manager {
 
     @Override
     public void deleteTask(int id) {
-        tasks.remove(id);
+        tasks.remove(id-1);
     }
 
     @Override
     public void deleteSubtask(int id) {
-        subtasks.remove(id);
+        subtasks.remove(id-1);
     }
 
     @Override
     public void deleteEpic(int id) {
-        epics.remove(id);
+        epics.remove(id-1);
     }
 
     @Override
@@ -95,20 +95,20 @@ public class TaskManager implements Manager {
 
     @Override
     public void updateTask(int id, Task newTask) {
-        tasks.remove(id);
+        tasks.remove(id-1);
         tasks.add(id, newTask);
     }
 
     @Override
     public void updateSubtask(int id, Subtask newTask) {
-        subtasks.remove(id);
+        subtasks.remove(id-1);
         subtasks.add(id, newTask);
     }
 
     @Override
     public void updateEpic(int id, Epic newTask) {
-        epics.remove(id);
-        epics.add(id, newTask);
+        epics.remove(id-1);
+        epics.add(newTask);
     }
 
     @Override
@@ -136,5 +136,10 @@ public class TaskManager implements Manager {
             if (doneSt == temp.size())
                 epics.get(epiqId).setStatus("DONE");
         }
+    }
+
+    @Override
+    public String toString(){
+        return "TASKS:\n" + tasks.toString() + "\n\nEPICS:\n" + epics.toString() + "\n\nSUBTASKS:\n" + subtasks.toString();
     }
 }

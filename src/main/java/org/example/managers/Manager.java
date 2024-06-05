@@ -36,4 +36,5 @@ public interface Manager {
     public void updateEpic(int id, Epic newTask);
 
     public void ifChangeEpicStatus(int epiqId);
+
 }
