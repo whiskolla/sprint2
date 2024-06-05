@@ -4,13 +4,7 @@ package org.example.tasks;
 import java.util.ArrayList;
 
 public class Epic extends Task {
-
-    boolean ifCheck = false;
-    private int id;
-    private String name;
-    private String description;
-    private String status;
-    private ArrayList<Subtask> subtasks = new ArrayList<Subtask>();
+    private ArrayList<Integer> subtasksIds = new ArrayList<Integer>();
 
 
     public Epic(){}
@@ -19,19 +13,7 @@ public class Epic extends Task {
         super(id, name, description, status);
     }
 
-
-
-
-
-    public boolean checkIfNoActiveTasks() {
-        for(Subtask i : subtasks) {
-            if(i.getStatus().equals("DONE")){
-                ifCheck = true;
-            } else {
-                ifCheck = false;
-                return ifCheck;
-            }
-        }
-        return ifCheck;
+    public ArrayList<Integer> getSubtasksIds() {
+        return subtasksIds;
     }
 }
